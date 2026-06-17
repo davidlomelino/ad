@@ -1,28 +1,21 @@
 :root {
   --bg: #f9f9f9;
-  /* varm ljusgrå */
   --fg: #ffffff;
-  /* mörkgrå text */
   --muted: #ffffff;
-  /* sekundär text */
   --accent: #ffffff;
-  /* dämpad blågrå */
 }
 
 body {
   margin: 0;
-
   background: var(--bg);
   background-image: url("images/bg2.jpg");
   background-size: cover;
-  background-position: center bottom -300px;
+  background-position: center bottom -350px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
-
   color: var(--fg);
   font-family: 'Times New Roman', Times, serif;
-  min-height: 80svh;
   display: grid;
   place-items: center;
 }
@@ -53,7 +46,7 @@ p {
   font-size: 1.02rem;
   text-align: center;
   hyphens: auto;
-  margin: 0 0 1.0rem 0;
+  margin: 0 0 1rem 0;
 }
 
 a {
@@ -67,20 +60,84 @@ a:hover {
 }
 
 .content {
+  position: relative;
+  overflow: hidden;
 
   animation: fade-in 15000ms ease-out forwards;
   opacity: 0;
-  background-color: rgb(90, 108, 104);
-  margin-bottom: -400px
+
+  padding: 28px 34px;
+  margin-bottom: -400px;
+
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.28), transparent 28%),
+    radial-gradient(circle at 82% 72%, rgba(0, 0, 0, 0.10), transparent 35%),
+    radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.08), transparent 55%),
+    linear-gradient(160deg, #917885, #6e555c);
+
+  box-shadow:
+    0 14px 28px rgba(184, 153, 153, 0.22),
+    inset 0 0 28px rgba(255, 255, 255, 0.15),
+    inset 0 0 38px rgba(0, 0, 0, 0.12);
+
+  border-radius: 24px 12px 30px 16px;
+
+  clip-path: polygon(3% 1%,
+      97% 5%,
+      100% 10%,
+      98% 96%,
+      92% 100%,
+      6% 98%,
+      0% 90%,
+      2% 7%);
+
+  transform: rotate(-0.7deg) skewX(-0.4deg);
 }
 
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(35deg,
+      rgba(255, 255, 255, 0.035) 0px,
+      rgba(255, 255, 255, 0.035) 2px,
+      transparent 2px,
+      transparent 5px),
+    repeating-linear-gradient(-25deg,
+      rgba(0, 0, 0, 0.025) 0px,
+      rgba(0, 0, 0, 0.025) 1px,
+      transparent 1px,
+      transparent 6px);
+
+  opacity: 0.65;
+}
+
+.content::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  pointer-events: none;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px 10px 24px 12px;
+  clip-path: polygon(4% 2%,
+      96% 4%,
+      99% 12%,
+      97% 95%,
+      91% 99%,
+      7% 97%,
+      1% 88%,
+      3% 8%);
+}
 
 .section-title {
   font-size: 0.95rem;
   font-weight: 600;
-  margin: 0 0 0 0;
+  margin: 0;
 }
-
 
 .links {
   margin-top: 0.90rem;
@@ -90,10 +147,9 @@ a:hover {
   color: var(--muted);
 }
 
-
 @keyframes fade-in {
   to {
-    opacity: 5;
+    opacity: 1;
   }
 }
 
@@ -102,6 +158,9 @@ a:hover {
     background-position: center top;
     background-attachment: fixed;
     overflow-x: auto;
+  }
 
+  .content {
+    padding: 24px 26px;
   }
 }
