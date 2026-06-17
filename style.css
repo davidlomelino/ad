@@ -156,16 +156,17 @@ a:hover {
 @media (max-width: 768px) {
   body {
     background-position: center top;
-    background-attachment: scroll;
-    overflow-x: hidden;
+    background-attachment: fixed;
+    overflow-x: auto;
 
-    display: block;
-    min-height: auto;
+
+    place-items: start center;
   }
 
   main {
-    width: 92vw;
-    padding: 24px 16px;
+
+    margin-top: 0;
+    padding-top: 12px;
   }
 
   .content {
