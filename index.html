@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amanda & David 1/8 - 2026</title>
+
+  <!-- Font (Source Serif 4) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+  <main class="content" role="main">
+    <h1>Vi ska gifta oss!</h1>
+
+    <p>
+      Välkommen till vår vigsel den 1a augusti klockan 16.30 på Prostens Pizza i Skrea.
+    </p>
+
+    <p>
+      Efter vigseln bjuder vi på mat och dryck och trevligt sällskap.
+    </p>
+    <p>
+      Meddela gärna om du kan komma senast den 28e juni.
+    </p>
+    <p>
+      Presenter undanbedes! Vi önskar oss endast ert sällskap!
+    </p>
+
+    <p>
+      – David & Amanda
+    </p>
+
+  </main>
+</body>
+
+<style>
+  .heart {
+    position: fixed;
+    font-size: 90px;
+    pointer-events: none;
+    user-select: none;
+  }
+</style>
+
+<script>
+  const hearts = [];
+
+  for (let i = 0; i < 10; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = "❤️";
+    document.body.appendChild(heart);
+
+    hearts.push({
+      el: heart,
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: (Math.random() - 0.5) * 6,
+      vy: (Math.random() - 0.5) * 6
+    });
+  }
+
+  function animate() {
+    hearts.forEach(h => {
+      h.x += h.vx;
+      h.y += h.vy;
+
+      const size = h.el.offsetWidth;
+
+      if (h.x <= 0 || h.x + size >= window.innerWidth) {
+        h.vx *= -1;
+      }
+
+      if (h.y <= 0 || h.y + size >= window.innerHeight) {
+        h.vy *= -1;
+      }
+
+      h.el.style.transform = `translate(${h.x}px, ${h.y}px)`;
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+</html>
