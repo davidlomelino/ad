@@ -160,5 +160,9 @@ a:hover {
     overflow-x: auto;
   }
 
+  .content {
+    margin-bottom: 0;
+  }
+
 
 }
